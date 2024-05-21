@@ -31,6 +31,7 @@ oauthlib==3.2.2
 opt-einsum==3.3.0
 optree==0.11.0
 packaging==24.0
+paho-mqtt==2.1.0
 pandas==2.2.1
 protobuf==4.25.3
 pyasn1==0.6.0
