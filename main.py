@@ -17,9 +17,9 @@ hourMax = 20 # 22:00
 model_timewise = joblib.load('./data/pool_model02_.pkl') # contains days & hours
 
 # MQTT setup
-mqtt_broker = "192.168.43.118"
+mqtt_broker = "test.mosquitto.org"
 mqtt_port = 1883
-mqtt_topic_sensor = "pool/sensor"  # MQTT topic where sensor publishes data
+mqtt_topic_sensor = "pool702897/sensor"  # MQTT topic where sensor publishes data
 
 ph_value = 0
 tds_value = 0
@@ -35,7 +35,6 @@ def on_message(client, userdata, msg):
     
     # parse json data from mqtt
     data = json.loads(msg.payload.decode())
-    
     # Extract sensor data
     tds_value = data.get("tds", 0)
     ph_value = data.get("ph", 0)
