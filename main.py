@@ -5,6 +5,7 @@ import pandas as pd
 import joblib
 import paho.mqtt.client as mqtt
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
@@ -24,6 +25,15 @@ mqtt_topic_sensor = "pool702897/sensor"  # MQTT topic where sensor publishes dat
 ph_value = 0
 tds_value = 0
 tbdt_value = 0
+
+# Add the CORS middleware to the application
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
