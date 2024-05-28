@@ -66,7 +66,7 @@ async def predict(day: int,hour: int):
     
     predicted_values = {
         'pH': float(predictions[0][0]),
-        'Chlorine': float(predictions[0][1]),
+        'Conductivity': float(predictions[0][1]),
         'Turbidity': float(predictions[0][2]),
         'Safety': int(predictions[0][3])
     }
@@ -97,8 +97,7 @@ async def predict(today:int,hour_now:int):
             
             if hour == hourMax :
                 hour = hourMin
-                startIndex02 = hourMin
-                print("hehe")                
+                startIndex02 = hourMin                             
             
         if found:
             break
